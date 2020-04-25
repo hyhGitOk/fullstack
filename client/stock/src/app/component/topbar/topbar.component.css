@@ -1,0 +1,92 @@
+.header {
+    transition: .2s ease-in;
+    background-color: #F0F0F0;
+    height: 60px;
+}
+
+.navbar-header {
+    transition: .2s ease-in;
+    height: 60px;
+}
+
+.header-link {
+    outline: none;
+}
+
+.headerTitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-link-icon {
+    font-size: 16px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    margin-left: -3px;
+}
+
+.header-menu {
+    height: 60px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.header-menu.active {
+    background: #2174A9;
+}
+
+.full-header-wrapper {
+    margin-left: 240px;
+}
+
+.mini-header-wrapper {
+    margin-left: 65px;
+}
+
+.header-dropdown-item {
+    cursor: pointer;
+}
+
+.mine-pop-menu {
+    right: 0;
+}
+
+.language-option {
+    width: 120px;
+}
+
+.license-option {
+    width: 140px;
+}
+
+.user-name {
+    font-size: 22px;
+}
+
+.px-25 {
+    padding-left: 2.5rem!important;
+    padding-right: 2.5rem!important;
+}
+
+.full-navbar-header {
+    width: 440px;
+}
+
+.full-header-container {
+    width: calc(100% - 240px);
+}
+
+.mini-header-container {
+    width: calc(100% - 65px);
+}
+
+.logout-button {
+    background-color: gainsboro;
+    border-radius: 0.7rem;
+    margin-right: 120px;
+}
+
+.active{
+   color:red;
+}

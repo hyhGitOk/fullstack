@@ -1,0 +1,20 @@
+<div style="width: 60%; height: 600px;margin-left: 20%;margin-top: 2%; background-color: #EBEBEB;" id="fieldDialog">
+  <div class="d-flex justify-content-center" style="margin-top: 5%;">
+    <div class="page-title">
+      List of Companies
+    </div>
+  </div>
+  <p>&nbsp;</p>
+
+  <button (click)="getSelectedRows()">Get Selected Rows</button>
+  <div class="d-flex justify-content-center " style="margin-top: 5%; height: 40px">
+    <ag-grid-angular #agGrid id="myGrid"
+        style="width: 500px; height: 150px;"
+        class="ag-theme-balham"
+        [rowData]="rowData"
+        rowSelection="multiple"
+        [columnDefs]="columnDefs">
+    </ag-grid-angular>
+ </div>
+
+</div>

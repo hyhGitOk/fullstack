@@ -1,0 +1,42 @@
+<div class="d-flex header justify-content-between">
+  <div class="navbar-header headerTitle full-navbar-header d-flex justify-content-center align-items-center">
+    <div class="h-100 header-link d-flex align-items-center">
+      <div class="user-name">Hello, {{ username }}</div>
+    </div>
+  </div>
+  <div class="navbar-header headerTitle d-flex justify-content-center align-items-center">
+    <div class="h-100 header-link d-flex align-items-center" (click)="logout()">
+      <button class="logout-button">Log out</button>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex header">
+  <div class="header d-flex justify-content-between pr-2 align-items-center full-header-container">
+    <div *ngIf="baseService.isAdmin" class="d-flex justify-content-between">
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=1;" id="import">
+        <a routerLink='/import' routerLinkActive='active' ng-class="{inactive:state==1}">Import Data</a>
+      </div>
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=2;" id="company">
+        <a routerLink='/companylist' routerLinkActive='active' ng-class="{inactive:state==2}">Manage Company</a>
+      </div>
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=3;" id="exchange">
+        <a routerLink='/exchangelist' routerLinkActive='active' ng-class="{inactive:state==3}">Manage Exchange</a>
+      </div>
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=4;" id="ipodetail">
+        <a routerLink='/ipodetail' routerLinkActive='active' ng-class="{inactive:state==4}">Upload IPO Details</a>
+      </div>
+    </div>
+    <div *ngIf="!baseService.isAdmin" class="d-flex justify-content-between">
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=5;" id="ipos">
+        <a routerLink='/ipolist' routerLinkActive='active' ng-class="{inactive:state==5}">IPOs</a>
+      </div>
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=6;" id="charts">
+        <a routerLink='/comparechart' routerLinkActive='active' ng-class="{inactive:state==6}">Compare Charts</a>
+      </div>
+      <div class="header-menu d-flex align-items-center px-25" (click)="state=7;" id="profile">
+        <a routerLink='/profile' routerLinkActive='active' ng-class="{inactive:state==7}">Update Profile</a>
+      </div>
+    </div>
+  </div>
+</div>

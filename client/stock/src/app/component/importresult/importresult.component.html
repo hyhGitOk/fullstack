@@ -1,0 +1,49 @@
+<div style="width: 60%; height: 600px;margin-left: 20%;margin-top: 2%; background-color: #EBEBEB;" id="fieldDialog">
+  <div class="d-flex justify-content-center" style="margin-top: 5%;">
+    <div class="page-title">
+      Summary of Upload
+    </div>
+  </div>
+  <p>&nbsp;</p>
+
+
+  <div class="d-flex justify-content-left" style="margin-top: 5%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Company Name:</label>
+    <label class="col-md-3">Abc LTD</label>
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Stock Exchange:</label>
+    <label class="col-md-3">BSE(Bombay Stock Exchange)</label>
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">No. of Records Imported:</label>
+    <label class="col-md-3">80</label>
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">From Date</label>
+    <label class="col-md-3">To Date</label>
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">xx/xx/xxxx</label>
+    <label class="col-md-3">xx/xx/xxxx</label>
+  </div>
+
+  <div class="d-flex justify-content-center" [ngClass]="{'mt-3': errorMessage === ''}" style="margin: 5%; ">
+    <div id="saveFileBut" class="popup-btn d-flex justify-content-center cursor-pointer" routerLink='/import'>
+      <div class="d-flex align-items-center">
+        <div class="ml-2 popup-btn-label">
+          O&nbsp;&nbsp;K
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

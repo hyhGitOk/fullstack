@@ -1,0 +1,51 @@
+<div style="width: 50%; height: 600px;margin-left: 25%;margin-top: 6%; background-color: #EBEBEB;" id="fieldDialog">
+  <div class="d-flex justify-content-center">
+    <div class="project-title">
+      Stock Market
+    </div>
+  </div>
+  <p>&nbsp;</p>
+  <hr />
+
+  <div class="d-flex justify-content-left" style="margin-top: 5%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">User Name:</label>
+    <input id="userTxt" type="text" placeholder="user" class="col-md-4" [(ngModel)]="username" />
+  </div>
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Email:</label>
+    <input id="emailTxt" type="text" placeholder="admin@example.com" class="col-md-4" [(ngModel)]="email" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Password:</label>
+    <input id="passwordPwd" type="password" placeholder="password" class="col-md-4" [(ngModel)]="password" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Confirm Password:</label>
+    <input id="confirmpasswordPwd" type="password" placeholder="password" class="col-md-4" [(ngModel)]="confirmpassword" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Mobile Number:</label>
+    <input id="mobileTxt" type="text" placeholder="00000000000" class="col-md-4" [(ngModel)]="mobile" />
+  </div>
+  <div id="errorMessage" class="d-flex justify-content-center text-danger">
+    {{errorMessage}}
+  </div>
+  <p>&nbsp;</p>
+  <div class="d-flex justify-content-center" [ngClass]="{'mt-3': errorMessage === ''}" style="margin: 5%; ">
+    <div id="saveFieldBut" class="popup-btn d-flex justify-content-center cursor-pointer" (click)="uploadFile()">
+      <div class="d-flex align-items-center">
+        <div class="ml-2 popup-btn-label">
+          Sign up
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
