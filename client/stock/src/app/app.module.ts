@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './component/login';
+import { ChartresultModule } from './component/chartresult';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { route1s } from './app-routing.module';
@@ -23,7 +24,6 @@ import { ExchangeComponent } from './component/exchange/exchange.component';
 import { IpodetailComponent } from './component/ipodetail/ipodetail.component';
 import { IpolistComponent } from './component/ipolist/ipolist.component';
 import { ComparechartComponent } from './component/comparechart/comparechart.component';
-import { ChartresultComponent } from './component/chartresult/chartresult.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ImportresultModule } from './component/importresult';
 import { ClickableParentComponent } from 'src/app/render/clickable/clickable.parent.component';
@@ -40,7 +40,6 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
     ExchangeComponent,
     IpolistComponent,
     ComparechartComponent,
-    ChartresultComponent,
     ProfileComponent,
     IpodetailComponent
   ],
@@ -50,6 +49,7 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
     LoginModule,
     ImportdataModule,
     ImportresultModule,
+    ChartresultModule,
     TopbarModule,
     HttpClientModule,
     BrowserAnimationsModule,
