@@ -14,10 +14,10 @@ export class ExchangelistComponent implements OnInit {
     @ViewChild('agGrid', {static: false}) agGrid: AgGridAngular;
     rowData: any;
     columnDefs = [
-        {headerName: '#', field: 'num', sortable: true, filter: true, checkboxSelection: true },
-        {headerName: 'Make', field: 'make', sortable: true, filter: true },
-        {headerName: 'Model', field: 'model', sortable: true, filter: true },
-        {headerName: 'Price', field: 'price', sortable: true, filter: true }
+        {headerName: '#', field: 'num', sortable: true, filter: true, width: 80, checkboxSelection: true },
+        {headerName: 'Make', field: 'make', sortable: true, width: 80, filter: true },
+        {headerName: 'Model', field: 'model', sortable: true, width: 120, filter: true },
+        {headerName: 'Price', field: 'price', sortable: true, width: 200, filter: true }
     ];
 
     // columnDefs = [

@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-comparechart',
   templateUrl: './comparechart.component.html',
   styleUrls: ['./comparechart.component.css']
 })
-export class ComparechartComponent implements OnInit {
+export class ComparechartComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  errorMessage = "";
+  importfile;
+
+  validate(){
+    if (!this.importfile){
+      this.errorMessage = "please input.";
+    }else{
+      this.errorMessage = "";
+    }
+  }
+
+  generate(){
+    this.validate();
+
+    if(!this.errorMessage){
+      //upload file to backend.
+
+      this.router.navigate["/companylist"];
+    }
   }
 
 }

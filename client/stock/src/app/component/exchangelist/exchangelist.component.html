@@ -1,20 +1,33 @@
 <div style="width: 60%; height: 600px;margin-left: 20%;margin-top: 2%; background-color: #EBEBEB;" id="fieldDialog">
-  <div class="d-flex justify-content-center" style="margin-top: 5%;">
-    <div class="page-title">
-      List of Companies
-    </div>
-  </div>
-  <p>&nbsp;</p>
+	<div class="d-flex justify-content-center" style="margin-top: 5%;">
+		<div class="page-title">
+			List of Stock Exchanges
+		</div>
+	</div>
+	<p>&nbsp;</p>
 
-  <button (click)="getSelectedRows()">Get Selected Rows</button>
-  <div class="d-flex justify-content-center " style="margin-top: 5%; height: 40px">
-    <ag-grid-angular #agGrid id="myGrid"
-        style="width: 500px; height: 150px;"
-        class="ag-theme-balham"
-        [rowData]="rowData"
-        rowSelection="multiple"
-        [columnDefs]="columnDefs">
-    </ag-grid-angular>
- </div>
+	<div id="saveFileBut" class="d-flex justify-content-center cursor-pointer" style="margin-top: 5%;">
+			<div class="line-btn d-flex justify-content-center align-items-center" routerLink='/exchange'>
+				<div class="popup-btn-label">
+					ADD
+				</div>
+			</div>
+			<div class="line-btn d-flex justify-content-center align-items-center" routerLink='/exchange'>
+				<div class="popup-btn-label">
+					EDIT
+				</div>
+			</div>
+			<div class="line-btn d-flex justify-content-center align-items-center" (click)="getSelectedRows()">
+				<div class="popup-btn-label">
+					DELETE
+				</div>
+			</div>
+	</div>
+
+	<div class="d-flex justify-content-center " style="margin-top: 1%; height: 40px">
+		<ag-grid-angular #agGrid id="myGrid" style="width: 60%; height: 150px;" class="ag-theme-balham" [rowData]="rowData"
+		 rowSelection="multiple" [columnDefs]="columnDefs">
+		</ag-grid-angular>
+	</div>
 
 </div>

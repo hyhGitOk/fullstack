@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css']
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  errorMessage = "";
+  importfile;
+
+  validate(){
+    if (!this.importfile){
+      this.errorMessage = "please input.";
+    }else{
+      this.errorMessage = "";
+    }
+  }
+
+  uploadFile(){
+    this.validate();
+
+    if(!this.errorMessage){
+      //upload file to backend.
+
+      this.router.navigate["/companylist"];
+    }
   }
 
 }

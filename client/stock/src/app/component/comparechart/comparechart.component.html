@@ -1,1 +1,64 @@
-<p>comparechart works!</p>
+<div style="width: 60%; height: 700px;margin-left: 20%;margin-top: 2%; background-color: #EBEBEB;" id="fieldDialog">
+	<div class="d-flex justify-content-center" style="margin-top: 5%;">
+		<div class="page-title">
+			Compare
+		</div>
+	</div>
+	<p>&nbsp;</p>
+
+  <div class="d-flex justify-content-left" style="margin-top: 5%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Select Company:</label>
+    <input id="companyOpt" type="text" class="col-md-4" [(ngModel)]="username" />
+  </div>
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Select Sector:</label>
+    <input id="sectorOpt" type="text" class="col-md-4" [(ngModel)]="email" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Select Stock Exchange:</label>
+    <input id="exchangeOpt" type="text" class="col-md-4" [(ngModel)]="password" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-3">Company Name:</label>
+    <input id="companyNameTxt" type="text"  class="col-md-4" [(ngModel)]="confirmpassword" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 4%; height: 30px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-4">From Period</label>
+    <label class="col-md-4">To Period</label>
+  </div>
+
+  <div class="d-flex justify-content-left" style="height: 30px;">
+    <label class="col-md-2"></label>
+    <input id="fromDateTxt" type="text"  class="col-md-2" [(ngModel)]="mobile" style="margin-left: 15px;"/>
+    <label class="col-md-2"></label>
+    <input id="toDateTxt" type="text"  class="col-md-2" [(ngModel)]="mobile" />
+  </div>
+
+  <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
+    <label class="col-md-2"></label>
+    <label class="col-md-2">Specify Periodicity:</label>
+    <label class="col-md-4"></label>
+    <img style="width: 16px; height: 16px;" src="assets/image/icon/save.png"/>
+  </div>
+  <div id="errorMessage" class="d-flex justify-content-center text-danger">
+    {{errorMessage}}
+  </div>
+  <p>&nbsp;</p>
+  <div class="d-flex justify-content-center" [ngClass]="{'mt-3': errorMessage === ''}" style="margin: 5%; ">
+    <div id="saveFieldBut" class="popup-btn d-flex justify-content-center cursor-pointer" (click)="generate()">
+      <div class="d-flex align-items-center">
+        <div class="ml-2 popup-btn-label">
+          Generate Map
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
