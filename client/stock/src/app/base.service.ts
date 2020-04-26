@@ -20,16 +20,16 @@ export class BaseService {
 
     generateHeader() {
         return new HttpHeaders({
-            //'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbkBpYm0uY29tIn0.iTYXbQBDQe5GMhraKDO5OxUjCM1Y-qkP_87HYZ9OweY'
-            'Authorization': localStorage.getItem('token'),
+            // 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbkBpYm0uY29tIn0.iTYXbQBDQe5GMhraKDO5OxUjCM1Y-qkP_87HYZ9OweY'
+            Authorization: localStorage.getItem('token'),
             'Accept-Language': localStorage.getItem('lang')
-        })
+        });
     }
 
     generateHeaderWithoutAuth() {
         return new HttpHeaders({
             'Accept-Language': localStorage.getItem('lang')
-        })
+        });
     }
 
     httpPost(url, data) {
@@ -46,7 +46,7 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    //this.catchHTTPError('post', err, url);
+                    // this.catchHTTPError('post', err, url);
                     resolve(err);
                 });
         });
@@ -64,15 +64,15 @@ export class BaseService {
                 .then(
                     (res: any[]) => {
                         console.log(res);
-                        if (res['statusCode'] === '001') { // Success
-                        } else { //fail
-                            //this.failMessages(res['statusMessage'], null);
-                            res['data'] = [];
-                        }
-                        resolve(res);
+                        // if (res.statusCode === '001') { // Success
+                        // } else { // fail
+                        //     // this.failMessages(res['statusMessage'], null);
+                        //     res.data = [];
+                        // }
+                        // resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    //this.catchHTTPError('get', err, url);
+                    // this.catchHTTPError('get', err, url);
                     const errReturn = {
                         data: []
                     };
@@ -96,7 +96,7 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    //this.catchHTTPError('post', err, url);
+                    // this.catchHTTPError('post', err, url);
                     resolve(err);
                 });
         });
@@ -117,7 +117,7 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    //this.catchHTTPError('put', err, url);
+                    // this.catchHTTPError('put', err, url);
                     resolve(err);
                 });
         });
@@ -138,7 +138,7 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    //this.catchHTTPError('delete', err, url);
+                    // this.catchHTTPError('delete', err, url);
                     resolve(err);
                 });
         });
@@ -152,12 +152,12 @@ export class BaseService {
     }
 
     dealWithUrl(url) {
-        url = url.replace(/\%/g,"%25");
-        url = url.replace(/\#/g,"%23");
-        url = url.replace(/\&/g,"%26");
-        url = url.replace(/\+/g,"%2B");
-        url = url.replace(/\?/g,"%3F");
-        url = url.replace(/\=/g,"%3D");
+        url = url.replace(/\%/g, '%25');
+        url = url.replace(/\#/g, '%23');
+        url = url.replace(/\&/g, '%26');
+        url = url.replace(/\+/g, '%2B');
+        url = url.replace(/\?/g, '%3F');
+        url = url.replace(/\=/g, '%3D');
         return url;
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { NgxEchartsModule } from 'ngx-echarts';
+// import { NgxEchartsModule } from 'ngx-echarts';
 import { EChartOption } from 'echarts';
 
 @Component({
@@ -23,7 +23,7 @@ export class ChartresultComponent implements OnInit {
 		data: [820, 932, 901, 934, 1290, 1330, 1320],
 		type: 'line'
 	  }]
-	}
+	};
 
   options: any;
 
@@ -59,19 +59,19 @@ export class ChartresultComponent implements OnInit {
         name: 'bar',
         type: 'bar',
         data: data1,
-        animationDelay: function (idx) {
+        animationDelay(idx) {
           return idx * 10;
         }
       }, {
         name: 'bar2',
         type: 'bar',
         data: data2,
-        animationDelay: function (idx) {
+        animationDelay(idx) {
           return idx * 10 + 100;
         }
       }],
       animationEasing: 'elasticOut',
-      animationDelayUpdate: function (idx) {
+      animationDelayUpdate(idx) {
         return idx * 5;
       }
     };

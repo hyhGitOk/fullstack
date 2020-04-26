@@ -6,7 +6,7 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
   template: `
     <div [title] = "showValue" class="largetxt-div">
         {{showValue}}
-    </div> 
+    </div>
     `,
     styles: [
         `.largetxt-div {

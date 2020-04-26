@@ -9,12 +9,12 @@ export class ProfileComponent implements OnInit {
 
   constructor() { }
 
-  username = "";
-  email = "";
-  
+  username = '';
+  email = '';
+
   ngOnInit() {
-	  this.username = "hyh";
-	  this.email = "admin@ibm.com";
+	  this.username = 'hyh';
+	  this.email = 'admin@ibm.com';
   }
 
 }

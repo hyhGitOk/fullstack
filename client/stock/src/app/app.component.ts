@@ -9,5 +9,5 @@ import { BaseService } from './base.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent extends BaseComponent{
+export class AppComponent extends BaseComponent {
 }

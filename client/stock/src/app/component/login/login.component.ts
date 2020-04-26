@@ -61,13 +61,13 @@ export class LoginComponent extends BaseComponent {
                     localStorage.setItem('username', 'David Lu');
                     localStorage.setItem('currentUser', 'user');
                     localStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbkBpYm0uY29tIn0.iTYXbQBDQe5GMhraKDO5OxUjCM1Y-qkP_87HYZ9OweY');
-                    this.errorMessage= '';
+                    this.errorMessage = '';
                     this.baseService.isLogin = false;
                     this.baseService.isAdmin = false;
 
                     this.router.navigate(['/ipolist']);
                 } else {
-                    this.errorMessage = "Email or Password is invalid.";
+                    this.errorMessage = 'Email or Password is invalid.';
                 }
     }
 }

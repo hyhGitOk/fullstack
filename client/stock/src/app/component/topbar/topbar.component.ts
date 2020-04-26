@@ -16,7 +16,7 @@ export class TopbarComponent extends BaseComponent {
     super(injector);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('currentUserId');
     localStorage.removeItem('username');
     localStorage.removeItem('currentUser');

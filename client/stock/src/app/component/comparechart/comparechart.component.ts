@@ -10,24 +10,24 @@ export class ComparechartComponent {
 
   constructor(private router: Router) { }
 
-  errorMessage = "";
+  errorMessage = '';
   importfile;
 
-  validate(){
-    if (!this.importfile){
-      this.errorMessage = "please input.";
-    }else{
-      this.errorMessage = "";
+  validate() {
+    if (!this.importfile) {
+      this.errorMessage = 'please input.';
+    } else {
+      this.errorMessage = '';
     }
   }
 
-  generate(){
+  generate() {
     this.validate();
 
-    if(!this.errorMessage){
-      //upload file to backend.
+    if (!this.errorMessage) {
+      // upload file to backend.
 
-      this.router.navigate["/companylist"];
+      this.router.navigate['/companylist'];
     }
   }
 

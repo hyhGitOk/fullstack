@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 import { BaseService } from 'src/app/base.service';
 
 @Injectable()
-export class LoginService extends BaseService{
+export class LoginService extends BaseService {
     /*variables defined*/
     message = '';
 
@@ -26,7 +26,7 @@ export class LoginService extends BaseService{
     authorize(email, password) {
         const promise = new Promise((resolve) => {
             const url = this.baseApiUrl + '/security/login';
-            this.httpPostWithNoAuth(url, { email: email, password: password })
+            this.httpPostWithNoAuth(url, { email, password })
                 .then(
                     (res: Response) => { // Success
                         resolve(res);

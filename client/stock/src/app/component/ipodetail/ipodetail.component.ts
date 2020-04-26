@@ -11,24 +11,24 @@ export class IpodetailComponent {
 
   constructor(private router: Router) { }
 
-  errorMessage = "";
+  errorMessage = '';
   importfile;
 
-  validate(){
-    if (!this.importfile){
-      this.errorMessage = "please select file.";
-    }else{
-      this.errorMessage = "";
+  validate() {
+    if (!this.importfile) {
+      this.errorMessage = 'please select file.';
+    } else {
+      this.errorMessage = '';
     }
   }
 
-  uploadFile(){
+  uploadFile() {
     this.validate();
 
-    if(!this.errorMessage){
-      //upload file to backend.
+    if (!this.errorMessage) {
+      // upload file to backend.
 
-      this.router.navigate["/login"];
+      this.router.navigate['/login'];
     }
   }
 

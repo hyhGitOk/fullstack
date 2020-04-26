@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-company',
@@ -10,24 +10,29 @@ export class CompanyComponent {
 
   constructor(private router: Router) { }
 
-  errorMessage = "";
-  importfile;
+  @Input() companyName : string;
+  @Input() ceoName : string;
+  @Input() boardMembers : string;
+  @Input() turnover : string;
+  @Input() description : string;
+  @Input() ipoDate : string;
+  errorMessage = '';
 
-  validate(){
-    if (!this.importfile){
-      this.errorMessage = "please input.";
-    }else{
-      this.errorMessage = "";
+  validate() {
+    if (!this.companyName) {
+      this.errorMessage = 'please input.';
+    } else {
+      this.errorMessage = '';
     }
   }
 
-  uploadFile(){
+  uploadFile() {
     this.validate();
 
-    if(!this.errorMessage){
-      //upload file to backend.
+    if (!this.errorMessage) {
+      // upload file to backend.
 
-      this.router.navigate["/companylist"];
+      this.router.navigate['/companylist'];
     }
   }
 

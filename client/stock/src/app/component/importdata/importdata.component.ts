@@ -8,30 +8,30 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './importdata.component.html',
   styleUrls: ['./importdata.component.css']
 })
-export class ImportDataComponent extends BaseComponent{
+export class ImportDataComponent extends BaseComponent {
 
   constructor(private router: Router, public injector: Injector) {
     super(injector);
   }
 
-  errorMessage = "";
+  errorMessage = '';
   importfile;
 
-  validate(){
-    if (!this.importfile){
-      this.errorMessage = "please select file.";
-    }else{
-      this.errorMessage = "";
+  validate() {
+    if (!this.importfile) {
+      this.errorMessage = 'please select file.';
+    } else {
+      this.errorMessage = '';
     }
   }
 
-  uploadFile(){
+  uploadFile() {
     this.validate();
 
-    if(!this.errorMessage){
-      //upload file to backend.
+    if (!this.errorMessage) {
+      // upload file to backend.
 
-      this.router.navigate["/login"];
+      this.router.navigate['/login'];
     }
   }
 
