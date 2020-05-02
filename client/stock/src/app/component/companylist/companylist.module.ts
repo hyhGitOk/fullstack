@@ -1,5 +1,5 @@
 /*
- * @description: Chartresult Module
+ * @description: Companylist Module
  * @author: hyuehua@cn.ibm.com
  * @version 1.0
  * Copyright (c) 2020, IBM All Rights Reserved.
@@ -8,10 +8,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxEchartsModule } from 'ngx-echarts';
 
-import { ChartresultComponent } from './chartresult.component';
-//import { ChartresultRoutes } from './chartresult.route';
+import { AgGridModule } from 'ag-grid-angular';
+
+import { CompanylistComponent } from './companylist.component';
 
 /*module defined*/
 @NgModule({
@@ -19,12 +19,11 @@ import { ChartresultComponent } from './chartresult.component';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    //ChartresultRoutes,
-	NgxEchartsModule
+    AgGridModule
   ],
-  declarations: [ChartresultComponent],
+  declarations: [CompanylistComponent],
   entryComponents: [],
   providers: [],
-  exports: [ChartresultComponent]
+  exports: [CompanylistComponent]
 })
-export class ChartresultModule { }
+export class CompanylistModule { }

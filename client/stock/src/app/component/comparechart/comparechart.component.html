@@ -9,24 +9,24 @@
   <div class="d-flex justify-content-left" style="margin-top: 5%; height: 40px;">
     <label class="col-md-2"></label>
     <label class="col-md-3">Select Company:</label>
-    <input id="companyOpt" type="text" class="col-md-4" [(ngModel)]="username" />
+    <input id="companyOpt" type="text" class="col-md-4" [(ngModel)]="company" />
   </div>
   <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
     <label class="col-md-2"></label>
     <label class="col-md-3">Select Sector:</label>
-    <input id="sectorOpt" type="text" class="col-md-4" [(ngModel)]="email" />
+    <input id="sectorOpt" type="text" class="col-md-4" [(ngModel)]="sector" />
   </div>
 
   <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
     <label class="col-md-2"></label>
     <label class="col-md-3">Select Stock Exchange:</label>
-    <input id="exchangeOpt" type="text" class="col-md-4" [(ngModel)]="password" />
+    <input id="exchangeOpt" type="text" class="col-md-4" [(ngModel)]="exchange" />
   </div>
 
   <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
     <label class="col-md-2"></label>
     <label class="col-md-3">Company Name:</label>
-    <input id="companyNameTxt" type="text"  class="col-md-4" [(ngModel)]="confirmpassword" />
+    <input id="companyNameTxt" type="text"  class="col-md-4" [(ngModel)]="companyName" />
   </div>
 
   <div class="d-flex justify-content-left" style="margin-top: 4%; height: 30px;">
@@ -37,9 +37,9 @@
 
   <div class="d-flex justify-content-left" style="height: 30px;">
     <label class="col-md-2"></label>
-    <input id="fromDateTxt" type="text"  class="col-md-2" [(ngModel)]="mobile" style="margin-left: 15px;"/>
+    <input id="fromDateTxt" type="text"  class="col-md-2" [(ngModel)]="fromDate" />
     <label class="col-md-2"></label>
-    <input id="toDateTxt" type="text"  class="col-md-2" [(ngModel)]="mobile" />
+    <input id="toDateTxt" type="text"  class="col-md-2" [(ngModel)]="toDate" />
   </div>
 
   <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
@@ -52,7 +52,7 @@
     {{errorMessage}}
   </div>
   <p>&nbsp;</p>
-  <div class="d-flex justify-content-center" [ngClass]="{'mt-3': errorMessage === ''}" style="margin: 5%; ">
+  <div class="d-flex justify-content-center" style="margin: 5%; ">
     <div id="saveFieldBut" class="popup-btn d-flex justify-content-center cursor-pointer" (click)="generate()">
       <div class="d-flex align-items-center">
         <div class="ml-2 popup-btn-label">

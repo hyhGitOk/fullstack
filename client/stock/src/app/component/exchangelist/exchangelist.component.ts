@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
+
+import { BaseComponent } from '../../base.component';
 import { ClickableParentComponent } from 'src/app/render/clickable/clickable.parent.component';
 import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextShow.component';
 
@@ -9,7 +12,7 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
   templateUrl: './exchangelist.component.html',
   styleUrls: ['./exchangelist.component.css']
 })
-export class ExchangelistComponent implements OnInit {
+export class ExchangelistComponent extends BaseComponent implements OnInit {
 
     @ViewChild('agGrid', {static: false}) agGrid: AgGridAngular;
     rowData: any;
@@ -19,6 +22,10 @@ export class ExchangelistComponent implements OnInit {
         {headerName: 'Model', field: 'model', sortable: true, width: 120, filter: true },
         {headerName: 'Price', field: 'price', sortable: true, width: 200, filter: true }
     ];
+	
+    constructor(private router: Router, public injector: Injector) {
+      super(injector);
+    }
 
     // columnDefs = [
     //   {
@@ -65,9 +72,6 @@ export class ExchangelistComponent implements OnInit {
     //   // }
     // ];
 
-
-    constructor(private http: HttpClient) { }
-
     ngOnInit() {
         // this.rowData = this.http.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/rowData.json');
         this.rowData = [
@@ -82,5 +86,15 @@ export class ExchangelistComponent implements OnInit {
         const selectedData = selectedNodes.map( node => node.data );
         const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
         alert(`Selected nodes: ${selectedDataStringPresentation}`);
+    }
+
+    create() {
+        this.baseService.operationType = 'create';
+		this.router.navigate(['exchange']);
+    }
+
+    update() {
+        this.baseService.operationType = 'update';
+		this.router.navigate(['exchange']);
     }
 }

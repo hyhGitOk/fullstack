@@ -10,15 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ImportDataComponent } from './importdata.component';
-import { ImportdataRoutes } from './importdata.route';
 
 /*module defined*/
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ImportdataRoutes
+    BrowserAnimationsModule
   ],
   declarations: [ImportDataComponent],
   entryComponents: [],

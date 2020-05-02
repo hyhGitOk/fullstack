@@ -1,7 +1,10 @@
 <div style="width: 60%; height: 600px;margin-left: 20%;margin-top: 2%; background-color: #EBEBEB;" id="fieldDialog">
 	<div class="d-flex justify-content-center" style="margin-top: 5%;">
-		<div class="page-title">
+		<div class="page-title" *ngIf="this.baseService.operationType === 'create'">
 			Create New Company
+		</div>
+		<div class="page-title" *ngIf="this.baseService.operationType === 'update'">
+			Update Company
 		</div>
 	</div>
 	<p>&nbsp;</p>
@@ -38,13 +41,14 @@
   <div class="d-flex justify-content-left" style="margin-top: 2%; height: 40px;">
     <label class="col-md-2"></label>
     <label class="col-md-3">IPO Date:</label>
-    <input id="ipoDateTxt" type="text"  class="col-md-4" [(ngModel)]="ipoDate" />
+    <input id="ipoDateTxt" type="text"  class="col-md-4" [(ngModel)]="ipoDate" *ngIf="this.baseService.operationType === 'create'"/>
+    <label id="ipoDateLbl" class="col-md-4" *ngIf="this.baseService.operationType === 'update'">{{ipoDate}}</label>
   </div>
   <div id="errorMessage" class="d-flex justify-content-center text-danger">
     {{errorMessage}}
   </div>
   <p>&nbsp;</p>
-  <div class="d-flex justify-content-center" [ngClass]="{'mt-3': errorMessage === ''}" style="margin: 5%; ">
+  <div class="d-flex justify-content-center" style="margin: 5%; ">
     <div id="saveFieldBut" class="popup-btn d-flex justify-content-center cursor-pointer" (click)="save()">
       <div class="d-flex align-items-center">
         <div class="ml-2 popup-btn-label">

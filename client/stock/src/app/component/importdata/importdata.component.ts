@@ -8,11 +8,9 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './importdata.component.html',
   styleUrls: ['./importdata.component.css']
 })
-export class ImportDataComponent extends BaseComponent {
+export class ImportDataComponent{
 
-  constructor(private router: Router, public injector: Injector) {
-    super(injector);
-  }
+  constructor(private router: Router) { }
 
   errorMessage = '';
   importfile;
@@ -31,7 +29,7 @@ export class ImportDataComponent extends BaseComponent {
     if (!this.errorMessage) {
       // upload file to backend.
 
-      this.router.navigate['/login'];
+	  this.router.navigate(['/importresult']);
     }
   }
 

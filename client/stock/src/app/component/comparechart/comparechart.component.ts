@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comparechart',
@@ -10,12 +10,17 @@ export class ComparechartComponent {
 
   constructor(private router: Router) { }
 
+  @Input() company : string;
+  @Input() sector : string;
+  @Input() exchange : string;
+  @Input() companyName : string;
+  @Input() fromDate : string;
+  @Input() toDate : string;
   errorMessage = '';
-  importfile;
 
   validate() {
-    if (!this.importfile) {
-      this.errorMessage = 'please input.';
+    if (!this.company) {
+      this.errorMessage = 'please select company.';
     } else {
       this.errorMessage = '';
     }
@@ -25,9 +30,7 @@ export class ComparechartComponent {
     this.validate();
 
     if (!this.errorMessage) {
-      // upload file to backend.
-
-      this.router.navigate['/companylist'];
+      this.router.navigate(['/chartresult']);
     }
   }
 

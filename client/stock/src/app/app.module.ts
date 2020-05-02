@@ -4,28 +4,30 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './component/login';
 import { ChartresultModule } from './component/chartresult';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { route1s } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { BaseService } from './base.service';
 import { TopbarModule } from './component/topbar';
 import { ImportdataModule } from './component/importdata';
+import { ImportresultModule } from './component/importresult';
+import { CompanylistModule } from './component/companylist';
+import { ExchangelistModule } from './component/exchangelist';
+
+import { route1s } from './app-routing.module';
+import { BaseService } from './base.service';
+
+import { AppComponent } from './app.component';
 import { Error404Component } from './component/error404/error404.component';
 import { SignupComponent } from './component/signup/signup.component';
-import { CompanylistComponent } from './component/companylist/companylist.component';
 import { CompanyComponent } from './component/company/company.component';
-import { ExchangelistComponent } from './component/exchangelist/exchangelist.component';
 import { ExchangeComponent } from './component/exchange/exchange.component';
 import { IpodetailComponent } from './component/ipodetail/ipodetail.component';
 import { IpolistComponent } from './component/ipolist/ipolist.component';
 import { ComparechartComponent } from './component/comparechart/comparechart.component';
 import { ProfileComponent } from './component/profile/profile.component';
-import { ImportresultModule } from './component/importresult';
 import { ClickableParentComponent } from 'src/app/render/clickable/clickable.parent.component';
 import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextShow.component';
 
@@ -34,9 +36,7 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
     AppComponent,
     Error404Component,
     SignupComponent,
-    CompanylistComponent,
     CompanyComponent,
-    ExchangelistComponent,
     ExchangeComponent,
     IpolistComponent,
     ComparechartComponent,
@@ -50,6 +50,8 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
     ImportdataModule,
     ImportresultModule,
     ChartresultModule,
+	CompanylistModule,
+	ExchangelistModule,
     TopbarModule,
     HttpClientModule,
     BrowserAnimationsModule,

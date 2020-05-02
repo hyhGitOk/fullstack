@@ -14,6 +14,8 @@ export class BaseService {
     baseApiUrl = 'api/v1';
     isLogin = true;
     isAdmin = true;
+    operationType = 'create';
+    topbarState = '1';
     // public alertMessageService: AlertMessageService = this.injector.get(AlertMessageService);
 
     constructor(private http: HttpClient, public injector: Injector) {}
