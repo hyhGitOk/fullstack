@@ -4,87 +4,87 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hyh.dao.UserDao;
-import com.hyh.entity.TUser;
+import com.hyh.dao.SectorDao;
+import com.hyh.entity.TSector;
 
 @Component
-public class UserService {
+public class SectorService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
-	private UserDao userDao;
+	private SectorDao sectorDao;
 
 	/**
-	 * find all users
+	 * find all sectors
 	 * 
-	 * @return all user list
+	 * @return all sector list
 	 */
-	public Iterable<TUser> findAll() {
+	public Iterable<TSector> findAll() {
 
 		logger.info(this.getClass().getName() + " findAll enter...");
 
-		// get users
-		Iterable<TUser> userList = userDao.findAll();
+		// get sectors
+		Iterable<TSector> sectorList = sectorDao.findAll();
 
 		logger.info(this.getClass().getName() + " findAll completed.");
 
-		return userList;
+		return sectorList;
 	}
 
 	/**
-	 * find user by id
+	 * find sector by id
 	 * 
-	 * @param id user id
+	 * @param id sector id
 	 * 
-	 * @return TUser
+	 * @return TSector
 	 */
-	public TUser findById(Integer id) {
+	public TSector findById(Integer id) {
 
 		logger.info(this.getClass().getName() + " findById enter...");
 
-		// get users
-		TUser user = userDao.findOne(id);
+		// get sectors
+		TSector sectorList = sectorDao.findOne(id);
 
 		logger.info(this.getClass().getName() + " findById completed.");
 
-		return user;
+		return sectorList;
 	}
 
 	/**
-	 * Create/Update user
+	 * Create/Update sector
 	 * 
-	 * @param userEntity TUser
+	 * @param sectorEntity TSector
 	 */
-	public void save(TUser userEntity) {
+	public void save(TSector sectorEntity) {
 
 		logger.info(this.getClass().getName() + " save enter...");
 
-		// save user
-		userDao.save(userEntity);
+		// save sector
+		sectorDao.save(sectorEntity);
 
 		logger.info(this.getClass().getName() + " save completed.");
 	}
 
 	/**
-	 * Delete user by id
+	 * Delete sector by id
 	 * 
-	 * @param id user id
+	 * @param id sector id
 	 * @return -1:failed; 1:success
 	 */
 	public int deleteById(int id) {
 
 		logger.info(this.getClass().getName() + " deleteById enter...");
 
-		// get user
-		TUser user = userDao.findOne(id);
+		// get sector
+		TSector sector = sectorDao.findOne(id);
 
-		if (user == null) {
+		if (sector == null) {
 			return -1;
 		}
 
-		// delete user
-		userDao.delete(id);
+		// delete sector
+		sectorDao.delete(id);
 
 		logger.info(this.getClass().getName() + " deleteById completed.");
 
@@ -101,7 +101,7 @@ public class UserService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = userDao.getMaxId();
+		int maxId = sectorDao.getMaxId();
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

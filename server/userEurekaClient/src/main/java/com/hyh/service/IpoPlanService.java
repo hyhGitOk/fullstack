@@ -4,87 +4,87 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hyh.dao.UserDao;
-import com.hyh.entity.TUser;
+import com.hyh.dao.IpoPlanDao;
+import com.hyh.entity.TIpoPlan;
 
 @Component
-public class UserService {
+public class IpoPlanService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
-	private UserDao userDao;
+	private IpoPlanDao ipoPlanDao;
 
 	/**
-	 * find all users
+	 * find all ipoPlans
 	 * 
-	 * @return all user list
+	 * @return all ipoPlan list
 	 */
-	public Iterable<TUser> findAll() {
+	public Iterable<TIpoPlan> findAll() {
 
 		logger.info(this.getClass().getName() + " findAll enter...");
 
-		// get users
-		Iterable<TUser> userList = userDao.findAll();
+		// get ipoPlans
+		Iterable<TIpoPlan> ipoPlanList = ipoPlanDao.findAll();
 
 		logger.info(this.getClass().getName() + " findAll completed.");
 
-		return userList;
+		return ipoPlanList;
 	}
 
 	/**
-	 * find user by id
+	 * find ipoPlan by id
 	 * 
-	 * @param id user id
+	 * @param id ipoPlan id
 	 * 
-	 * @return TUser
+	 * @return TIpoPlan
 	 */
-	public TUser findById(Integer id) {
+	public TIpoPlan findById(Integer id) {
 
 		logger.info(this.getClass().getName() + " findById enter...");
 
-		// get users
-		TUser user = userDao.findOne(id);
+		// get ipoPlans
+		TIpoPlan ipoPlanList = ipoPlanDao.findOne(id);
 
 		logger.info(this.getClass().getName() + " findById completed.");
 
-		return user;
+		return ipoPlanList;
 	}
 
 	/**
-	 * Create/Update user
+	 * Create/Update ipoPlan
 	 * 
-	 * @param userEntity TUser
+	 * @param ipoPlanEntity TIpoPlan
 	 */
-	public void save(TUser userEntity) {
+	public void save(TIpoPlan ipoPlanEntity) {
 
 		logger.info(this.getClass().getName() + " save enter...");
 
-		// save user
-		userDao.save(userEntity);
+		// save ipoPlan
+		ipoPlanDao.save(ipoPlanEntity);
 
 		logger.info(this.getClass().getName() + " save completed.");
 	}
 
 	/**
-	 * Delete user by id
+	 * Delete ipoPlan by id
 	 * 
-	 * @param id user id
+	 * @param id ipoPlan id
 	 * @return -1:failed; 1:success
 	 */
 	public int deleteById(int id) {
 
 		logger.info(this.getClass().getName() + " deleteById enter...");
 
-		// get user
-		TUser user = userDao.findOne(id);
+		// get ipoPlan
+		TIpoPlan ipoPlan = ipoPlanDao.findOne(id);
 
-		if (user == null) {
+		if (ipoPlan == null) {
 			return -1;
 		}
 
-		// delete user
-		userDao.delete(id);
+		// delete ipoPlan
+		ipoPlanDao.delete(id);
 
 		logger.info(this.getClass().getName() + " deleteById completed.");
 
@@ -101,7 +101,7 @@ public class UserService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = userDao.getMaxId();
+		int maxId = ipoPlanDao.getMaxId();
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

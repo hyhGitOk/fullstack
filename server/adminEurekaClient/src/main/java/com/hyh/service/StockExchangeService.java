@@ -4,87 +4,87 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hyh.dao.UserDao;
-import com.hyh.entity.TUser;
+import com.hyh.dao.StockExchangeDao;
+import com.hyh.entity.TStockExchange;
 
 @Component
-public class UserService {
+public class StockExchangeService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
-	private UserDao userDao;
+	private StockExchangeDao stockExchangeDao;
 
 	/**
-	 * find all users
+	 * find all stockExchanges
 	 * 
-	 * @return all user list
+	 * @return all stockExchange list
 	 */
-	public Iterable<TUser> findAll() {
+	public Iterable<TStockExchange> findAll() {
 
 		logger.info(this.getClass().getName() + " findAll enter...");
 
-		// get users
-		Iterable<TUser> userList = userDao.findAll();
+		// get stockExchanges
+		Iterable<TStockExchange> stockExchangeList = stockExchangeDao.findAll();
 
 		logger.info(this.getClass().getName() + " findAll completed.");
 
-		return userList;
+		return stockExchangeList;
 	}
 
 	/**
-	 * find user by id
+	 * find stockExchange by id
 	 * 
-	 * @param id user id
+	 * @param id stockExchange id
 	 * 
-	 * @return TUser
+	 * @return TStockExchange
 	 */
-	public TUser findById(Integer id) {
+	public TStockExchange findById(Integer id) {
 
 		logger.info(this.getClass().getName() + " findById enter...");
 
-		// get users
-		TUser user = userDao.findOne(id);
+		// get stockExchanges
+		TStockExchange stockExchangeList = stockExchangeDao.findOne(id);
 
 		logger.info(this.getClass().getName() + " findById completed.");
 
-		return user;
+		return stockExchangeList;
 	}
 
 	/**
-	 * Create/Update user
+	 * Create/Update stockExchange
 	 * 
-	 * @param userEntity TUser
+	 * @param stockExchangeEntity TStockExchange
 	 */
-	public void save(TUser userEntity) {
+	public void save(TStockExchange stockExchangeEntity) {
 
 		logger.info(this.getClass().getName() + " save enter...");
 
-		// save user
-		userDao.save(userEntity);
+		// save stockExchange
+		stockExchangeDao.save(stockExchangeEntity);
 
 		logger.info(this.getClass().getName() + " save completed.");
 	}
 
 	/**
-	 * Delete user by id
+	 * Delete stockExchange by id
 	 * 
-	 * @param id user id
+	 * @param id stockExchange id
 	 * @return -1:failed; 1:success
 	 */
 	public int deleteById(int id) {
 
 		logger.info(this.getClass().getName() + " deleteById enter...");
 
-		// get user
-		TUser user = userDao.findOne(id);
+		// get stockExchange
+		TStockExchange stockExchange = stockExchangeDao.findOne(id);
 
-		if (user == null) {
+		if (stockExchange == null) {
 			return -1;
 		}
 
-		// delete user
-		userDao.delete(id);
+		// delete stockExchange
+		stockExchangeDao.delete(id);
 
 		logger.info(this.getClass().getName() + " deleteById completed.");
 
@@ -101,7 +101,7 @@ public class UserService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = userDao.getMaxId();
+		int maxId = stockExchangeDao.getMaxId();
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

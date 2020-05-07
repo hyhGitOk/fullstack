@@ -4,10 +4,11 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.hyh.entity.TUser;
+import com.hyh.entity.TCompany;
 
-public interface UserDao extends CrudRepository<TUser, Integer>, JpaSpecificationExecutor<TUser> {
+public interface CompanyDao extends CrudRepository<TCompany, Integer>, JpaSpecificationExecutor<TCompany> {
 
-	@Query(value = "SELECT MAX(ID) FROM T_USER", nativeQuery = true)
+	@Query(value = "SELECT MAX(ID) FROM T_COMPANY", nativeQuery = true)
 	public int getMaxId();
+
 }

@@ -4,87 +4,87 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hyh.dao.UserDao;
-import com.hyh.entity.TUser;
+import com.hyh.dao.CompanyDao;
+import com.hyh.entity.TCompany;
 
 @Component
-public class UserService {
+public class CompanyService {
 
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
-	private UserDao userDao;
+	private CompanyDao companyDao;
 
 	/**
-	 * find all users
+	 * find all companies
 	 * 
-	 * @return all user list
+	 * @return all company list
 	 */
-	public Iterable<TUser> findAll() {
+	public Iterable<TCompany> findAll() {
 
 		logger.info(this.getClass().getName() + " findAll enter...");
 
-		// get users
-		Iterable<TUser> userList = userDao.findAll();
+		// get companies
+		Iterable<TCompany> companyList = companyDao.findAll();
 
 		logger.info(this.getClass().getName() + " findAll completed.");
 
-		return userList;
+		return companyList;
 	}
 
 	/**
-	 * find user by id
+	 * find company by id
 	 * 
-	 * @param id user id
+	 * @param id company id
 	 * 
-	 * @return TUser
+	 * @return TCompany
 	 */
-	public TUser findById(Integer id) {
+	public TCompany findById(Integer id) {
 
 		logger.info(this.getClass().getName() + " findById enter...");
 
-		// get users
-		TUser user = userDao.findOne(id);
+		// get companies
+		TCompany companyList = companyDao.findOne(id);
 
 		logger.info(this.getClass().getName() + " findById completed.");
 
-		return user;
+		return companyList;
 	}
 
 	/**
-	 * Create/Update user
+	 * Create/Update company
 	 * 
-	 * @param userEntity TUser
+	 * @param companyEntity TCompany
 	 */
-	public void save(TUser userEntity) {
+	public void save(TCompany companyEntity) {
 
 		logger.info(this.getClass().getName() + " save enter...");
 
-		// save user
-		userDao.save(userEntity);
+		// save company
+		companyDao.save(companyEntity);
 
 		logger.info(this.getClass().getName() + " save completed.");
 	}
 
 	/**
-	 * Delete user by id
+	 * Delete company by id
 	 * 
-	 * @param id user id
+	 * @param id company id
 	 * @return -1:failed; 1:success
 	 */
 	public int deleteById(int id) {
 
 		logger.info(this.getClass().getName() + " deleteById enter...");
 
-		// get user
-		TUser user = userDao.findOne(id);
+		// get company
+		TCompany company = companyDao.findOne(id);
 
-		if (user == null) {
+		if (company == null) {
 			return -1;
 		}
 
-		// delete user
-		userDao.delete(id);
+		// delete company
+		companyDao.delete(id);
 
 		logger.info(this.getClass().getName() + " deleteById completed.");
 
@@ -101,7 +101,7 @@ public class UserService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = userDao.getMaxId();
+		int maxId = companyDao.getMaxId();
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 
