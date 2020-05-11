@@ -6,27 +6,17 @@
 	</div>
 	<p>&nbsp;</p>
 
-	<div id="saveFileBut" class="d-flex justify-content-center cursor-pointer" style="margin-top: 5%;">
-			<div class="line-btn d-flex justify-content-center align-items-center" (click)="create()">
-				<div class="popup-btn-label">
-					ADD
-				</div>
+	<div id="saveFileBut" class="d-flex justify-content-center cursor-pointer" style="margin-top: 1%;">
+		<div class="line-btn d-flex justify-content-center align-items-center" (click)="create()">
+			<div class="popup-btn-label">
+				ADD
 			</div>
-			<div class="line-btn d-flex justify-content-center align-items-center" (click)="update()">
-				<div class="popup-btn-label">
-					EDIT
-				</div>
-			</div>
-			<div class="line-btn d-flex justify-content-center align-items-center" (click)="getSelectedRows()">
-				<div class="popup-btn-label">
-					DELETE
-				</div>
-			</div>
+		</div>
 	</div>
 
-	<div class="d-flex justify-content-center " style="margin-top: 1%; height: 40px">
-		<ag-grid-angular #agGrid id="myGrid" style="width: 60%; height: 150px;" class="ag-theme-balham" [rowData]="rowData"
-		 rowSelection="multiple" [columnDefs]="columnDefs">
+	<div class="d-flex justify-content-center " style="margin-top: 1%; height: 65%">
+		<ag-grid-angular #agGrid id="myGrid" style="width: 80%; height: 100%;" class="ag-theme-balham" [rowData]="rowData"
+		 rowSelection="multiple" [columnDefs]="columnDefs" rowHeight = 36>
 		</ag-grid-angular>
 	</div>
 

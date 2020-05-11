@@ -16,85 +16,33 @@ export class ExchangelistComponent extends BaseComponent implements OnInit {
 
     @ViewChild('agGrid', {static: false}) agGrid: AgGridAngular;
     rowData: any;
+
     columnDefs = [
-        {headerName: '#', field: 'num', sortable: true, filter: true, width: 80, checkboxSelection: true },
-        {headerName: 'Make', field: 'make', sortable: true, width: 80, filter: true },
-        {headerName: 'Model', field: 'model', sortable: true, width: 120, filter: true },
-        {headerName: 'Price', field: 'price', sortable: true, width: 200, filter: true }
+      {headerName: '#', field: 'num', editable: false, width: 50 },
+      {headerName: 'Make', field: 'make', editable: false, sortable: true, filter: true },
+      {headerName: 'Model', field: 'model', editable: false, sortable: true, filter: true },
+      {headerName: 'Price', field: 'price', editable: false, sortable: true, filter: true },
+      {headerName: 'Operation', field: 'clicking', editable: false, pinned: 'right', lockPinned: true, sortable: false,
+        cellRendererFramework: ClickableParentComponent, width: 100, minWidth: 100, maxWidth: 100 }
     ];
 	
     constructor(private router: Router, public injector: Injector) {
       super(injector);
     }
 
-    // columnDefs = [
-    //   {
-    //     headerName: '#',
-    //     field: 'num',
-    //     editable: false
-    //   },
-    //   {
-    //     headerName: 'Make',
-    //     field: 'dbName',
-    //     editable: false,
-    //     sortable: true,
-    //     filter: true
-    //     //cellRendererFramework: LargeTextShowComponent
-    //   },
-    //   {
-    //     headerName: 'Model',
-    //     field: 'model',
-    //     editable: false,
-    //     sortable: true,
-    //     filter: true
-    //     //cellRendererFramework: LargeTextShowComponent
-    //   },
-    //   {
-    //     headerName: 'Price',
-    //     field: 'price',
-    //     editable: false,
-    //     sortable: true,
-    //     filter: true
-    //     //cellRendererFramework: LargeTextShowComponent
-    //   }
-    //   // ,
-    //   // {
-    //   //   headerName: 'Operation',
-    //   //   field: 'clicking',
-    //   //   editable: false,
-    //   //   pinned: 'right',
-    //   //   lockPinned: true,
-    //   //   sortable: false,
-    //   //   cellRendererFramework: ClickableParentComponent,
-    //   //   width: 120,
-    //   //   minWidth: 120,
-    //   //   maxWidth: 120
-    //   // }
-    // ];
-
     ngOnInit() {
         // this.rowData = this.http.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/rowData.json');
         this.rowData = [
-            { num: '1', make: 'Toyota', model: 'Celica', price: 35000 },
-            { num: '2', make: 'Ford', model: 'Mondeo', price: 32000 },
-            { num: '3', make: 'Porsche', model: 'Boxter', price: 72000 }
+            { num: '1', make: 'Toyota', model: 'Celica', price: 35000, clicking: '' },
+            { num: '2', make: 'Ford', model: 'Mondeo', price: 32000, clicking: '' },
+            { num: '3', make: 'Porsche', model: 'Boxter', price: 72000, clicking: '' }
         ];
+		
+		this.baseService.table = "exchange";
     }
-
-    getSelectedRows() {
-        const selectedNodes = this.agGrid.api.getSelectedNodes();
-        const selectedData = selectedNodes.map( node => node.data );
-        const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
-        alert(`Selected nodes: ${selectedDataStringPresentation}`);
-    }
-
+	
     create() {
         this.baseService.operationType = 'create';
-		this.router.navigate(['exchange']);
-    }
-
-    update() {
-        this.baseService.operationType = 'update';
 		this.router.navigate(['exchange']);
     }
 }

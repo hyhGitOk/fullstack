@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,7 +59,8 @@ import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextSh
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents([]),
-    RouterModule.forRoot(route1s)
+    RouterModule.forRoot(route1s),
+	NgbModule
   ],
   providers: [BaseService],
   bootstrap: [AppComponent]

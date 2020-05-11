@@ -16,7 +16,8 @@ export class BaseService {
     isAdmin = true;
     operationType = 'create';
     topbarState = '1';
-    // public alertMessageService: AlertMessageService = this.injector.get(AlertMessageService);
+	table = "company";
+	editData: any;
 
     constructor(private http: HttpClient, public injector: Injector) {}
 

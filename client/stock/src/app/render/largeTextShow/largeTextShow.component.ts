@@ -13,6 +13,7 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+			font-size: 30px;
         }
         `
     ]

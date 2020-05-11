@@ -30,6 +30,8 @@ export class CompanylistComponent extends BaseComponent implements OnInit {
             { num: '2', make: 'Ford', model: 'Mondeo', price: 32000 },
             { num: '3', make: 'Porsche', model: 'Boxter', price: 72000 }
         ];
+		
+		this.baseService.table = "company";
     }
 
     getSelectedRows() {
