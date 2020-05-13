@@ -9,5 +9,5 @@ import com.hyh.entity.TStock;
 public interface StockDao extends CrudRepository<TStock, Integer>, JpaSpecificationExecutor<TStock> {
 
 	@Query(value = "SELECT MAX(CODE) FROM T_STOCK", nativeQuery = true)
-	public int getMaxCode();
+	public Integer getMaxCode();
 }

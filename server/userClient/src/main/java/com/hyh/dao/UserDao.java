@@ -9,5 +9,5 @@ import com.hyh.entity.TUser;
 public interface UserDao extends CrudRepository<TUser, Integer>, JpaSpecificationExecutor<TUser> {
 
 	@Query(value = "SELECT MAX(ID) FROM T_USER", nativeQuery = true)
-	public int getMaxId();
+	public Integer getMaxId();
 }

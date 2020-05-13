@@ -32,21 +32,21 @@ public class AuthController {
 		this.jwtTokenUtils = jwtTokenUtils;
 	}
 
-//	@GetMapping(value = "/login")
-//	public String login(String user, String password) {
-//		Map map = new HashMap();
-//		map.put("user", user);
-//		map.put("password", password);
-//		return jwtTokenUtils.createToken(map);
-//	}
-//
-//	@GetMapping(value = "/hello")
-//	public String hello() {
-//		return "Hello success!";
-//	}
-//
-//	@GetMapping(value = "/error")
-//	public ResponseEntity tokenError() {
-//		  return new ResponseEntity("token is invalid.", HttpStatus.UNAUTHORIZED);
-//	}
+	@GetMapping(value = "/login")
+	public String login(String user, String password) {
+		Map map = new HashMap();
+		map.put("user", user);
+		map.put("password", password);
+		return jwtTokenUtils.createToken(map);
+	}
+
+	@GetMapping(value = "/hello")
+	public String hello() {
+		return "Hello success!";
+	}
+
+	@GetMapping(value = "/error")
+	public ResponseEntity tokenError() {
+		  return new ResponseEntity("token is invalid.", HttpStatus.UNAUTHORIZED);
+	}
 }

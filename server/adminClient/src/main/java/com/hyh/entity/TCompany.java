@@ -1,5 +1,7 @@
 package com.hyh.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,10 +19,10 @@ public class TCompany {
 	private String name;
 
 	@Column(name = "turn_over")
-	private String turn_over;
+	private BigDecimal turn_over;
 
 	@Column(name = "profit")
-	private String profit;
+	private BigDecimal profit;
 
 	@Column(name = "ceo_name")
 	private String ceo_name;
@@ -29,7 +31,7 @@ public class TCompany {
 	private String board_of_directors;
 
 	@Column(name = "sector_id")
-	private String sector_id;
+	private Integer sector_id;
 
 	@Column(name = "brief")
 	private String brief;
@@ -50,19 +52,19 @@ public class TCompany {
 		this.name = name;
 	}
 
-	public String getTurn_over() {
+	public BigDecimal getTurn_over() {
 		return turn_over;
 	}
 
-	public void setTurn_over(String turn_over) {
+	public void setTurn_over(BigDecimal turn_over) {
 		this.turn_over = turn_over;
 	}
 
-	public String getProfit() {
+	public BigDecimal getProfit() {
 		return profit;
 	}
 
-	public void setProfit(String profit) {
+	public void setProfit(BigDecimal profit) {
 		this.profit = profit;
 	}
 
@@ -82,11 +84,11 @@ public class TCompany {
 		this.board_of_directors = board_of_directors;
 	}
 
-	public String getSector_id() {
+	public Integer getSector_id() {
 		return sector_id;
 	}
 
-	public void setSector_id(String sector_id) {
+	public void setSector_id(Integer sector_id) {
 		this.sector_id = sector_id;
 	}
 

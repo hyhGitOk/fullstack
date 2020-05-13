@@ -101,7 +101,10 @@ public class UserService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = userDao.getMaxId();
+		Integer maxId = userDao.getMaxId();
+		if (maxId == null) {
+			maxId = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

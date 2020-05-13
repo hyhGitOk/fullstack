@@ -10,5 +10,5 @@ import com.hyh.entity.TSector;
 public interface SectorDao extends CrudRepository<TSector, Integer>, JpaSpecificationExecutor<TCompany> {
 
 	@Query(value = "SELECT MAX(ID) FROM T_SECTOR", nativeQuery = true)
-	public int getMaxId();
+	public Integer getMaxId();
 }

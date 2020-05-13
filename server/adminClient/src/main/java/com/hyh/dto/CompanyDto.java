@@ -1,14 +1,16 @@
 package com.hyh.dto;
 
+import java.math.BigDecimal;
+
 public class CompanyDto {
 
 	private Integer id;
 	private String name;
-	private String turn_over;
-	private String profit;
+	private BigDecimal turn_over;
+	private BigDecimal profit;
 	private String ceo_name;
 	private String board_of_directors;
-	private String sector_id;
+	private Integer sector_id;
 	private String brief;
 
 	public Integer getId() {
@@ -27,19 +29,19 @@ public class CompanyDto {
 		this.name = name;
 	}
 
-	public String getTurn_over() {
+	public BigDecimal getTurn_over() {
 		return turn_over;
 	}
 
-	public void setTurn_over(String turn_over) {
+	public void setTurn_over(BigDecimal turn_over) {
 		this.turn_over = turn_over;
 	}
 
-	public String getProfit() {
+	public BigDecimal getProfit() {
 		return profit;
 	}
 
-	public void setProfit(String profit) {
+	public void setProfit(BigDecimal profit) {
 		this.profit = profit;
 	}
 
@@ -59,11 +61,11 @@ public class CompanyDto {
 		this.board_of_directors = board_of_directors;
 	}
 
-	public String getSector_id() {
+	public Integer getSector_id() {
 		return sector_id;
 	}
 
-	public void setSector_id(String sector_id) {
+	public void setSector_id(Integer sector_id) {
 		this.sector_id = sector_id;
 	}
 

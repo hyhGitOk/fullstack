@@ -9,5 +9,5 @@ import com.hyh.entity.TIpoPlan;
 public interface IpoPlanDao extends CrudRepository<TIpoPlan, Integer>, JpaSpecificationExecutor<TIpoPlan> {
 
 	@Query(value = "SELECT MAX(ID) FROM T_IPO_PLAN", nativeQuery = true)
-	public int getMaxId();
+	public Integer getMaxId();
 }

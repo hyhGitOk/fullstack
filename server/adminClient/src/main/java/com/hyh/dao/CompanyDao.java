@@ -9,6 +9,6 @@ import com.hyh.entity.TCompany;
 public interface CompanyDao extends CrudRepository<TCompany, Integer>, JpaSpecificationExecutor<TCompany> {
 
 	@Query(value = "SELECT MAX(ID) FROM T_COMPANY", nativeQuery = true)
-	public int getMaxId();
+	public Integer getMaxId();
 
 }

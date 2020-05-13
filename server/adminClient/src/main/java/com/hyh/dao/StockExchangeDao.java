@@ -10,5 +10,5 @@ public interface StockExchangeDao
 		extends CrudRepository<TStockExchange, Integer>, JpaSpecificationExecutor<TStockExchange> {
 
 	@Query(value = "SELECT MAX(ID) FROM T_STOCK_EXCHANGE", nativeQuery = true)
-	public int getMaxId();
+	public Integer getMaxId();
 }

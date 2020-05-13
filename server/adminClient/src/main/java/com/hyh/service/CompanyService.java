@@ -101,10 +101,13 @@ public class CompanyService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = companyDao.getMaxId();
+		Integer maxId = companyDao.getMaxId();
+		if (maxId == null) {
+			maxId = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 
-		return maxId + 1;
+		return maxId.intValue() + 1;
 	}
 }

@@ -16,10 +16,10 @@ public class EurekaServerApplication {
 		SpringApplication.run(EurekaServerApplication.class, args);
 	}
 
-	@Bean
-	public FilterRegistrationBean registration(JwtAuthenticationTokenFilter filter) {
-		FilterRegistrationBean registration = new FilterRegistrationBean(filter);
-		registration.setEnabled(true);
-		return registration;
-	}
+//	@Bean
+//	public FilterRegistrationBean registration(JwtAuthenticationTokenFilter filter) {
+//		FilterRegistrationBean registration = new FilterRegistrationBean(filter);
+//		registration.setEnabled(true);
+//		return registration;
+//	}
 }

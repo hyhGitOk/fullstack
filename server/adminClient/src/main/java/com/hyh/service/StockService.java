@@ -101,7 +101,10 @@ public class StockService {
 		logger.info(this.getClass().getName() + " getNewCode enter...");
 
 		// get max code
-		int maxCode = stockDao.getMaxCode();
+		Integer maxCode = stockDao.getMaxCode();
+		if (maxCode == null) {
+			maxCode = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewCode completed.");
 

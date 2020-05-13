@@ -101,7 +101,10 @@ public class StockExchangeService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = stockExchangeDao.getMaxId();
+		Integer maxId = stockExchangeDao.getMaxId();
+		if (maxId == null) {
+			maxId = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

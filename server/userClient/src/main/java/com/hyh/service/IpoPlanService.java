@@ -101,7 +101,10 @@ public class IpoPlanService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = ipoPlanDao.getMaxId();
+		Integer maxId = ipoPlanDao.getMaxId();
+		if (maxId == null) {
+			maxId = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 

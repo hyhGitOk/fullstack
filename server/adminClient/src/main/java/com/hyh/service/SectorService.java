@@ -101,7 +101,10 @@ public class SectorService {
 		logger.info(this.getClass().getName() + " getNewId enter...");
 
 		// get max id
-		int maxId = sectorDao.getMaxId();
+		Integer maxId = sectorDao.getMaxId();
+		if (maxId == null) {
+			maxId = 0;
+		}
 
 		logger.info(this.getClass().getName() + " getNewId completed.");
 
