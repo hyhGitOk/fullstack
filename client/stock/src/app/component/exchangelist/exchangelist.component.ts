@@ -7,6 +7,8 @@ import { BaseComponent } from '../../base.component';
 import { ClickableParentComponent } from 'src/app/render/clickable/clickable.parent.component';
 import { LargeTextShowComponent } from 'src/app/render/largeTextShow/largeTextShow.component';
 
+import { ExchangelistService } from './exchangelist.service';
+
 @Component({
   selector: 'app-exchangelist',
   templateUrl: './exchangelist.component.html',
@@ -26,17 +28,27 @@ export class ExchangelistComponent extends BaseComponent implements OnInit {
         cellRendererFramework: ClickableParentComponent, width: 100, minWidth: 100, maxWidth: 100 }
     ];
 	
-    constructor(private router: Router, public injector: Injector) {
+    constructor(private router: Router, public exchangelistService: ExchangelistService, public injector: Injector) {
       super(injector);
     }
 
     ngOnInit() {
-        // this.rowData = this.http.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/rowData.json');
-        this.rowData = [
-            { num: '1', make: 'Toyota', model: 'Celica', price: 35000, clicking: '' },
-            { num: '2', make: 'Ford', model: 'Mondeo', price: 32000, clicking: '' },
-            { num: '3', make: 'Porsche', model: 'Boxter', price: 72000, clicking: '' }
-        ];
+        this.exchangelistService
+            .getListData()
+            .then((result: any) => {
+				if(result.error){
+					this.errorMessage = result.error;
+				}else{
+					console.log(result);
+					this.rowData = result;
+				}
+            });
+   
+        // this.rowData = [
+        //     { num: '1', make: 'Toyota', model: 'Celica', price: 35000, clicking: '' },
+        //     { num: '2', make: 'Ford', model: 'Mondeo', price: 32000, clicking: '' },
+        //     { num: '3', make: 'Porsche', model: 'Boxter', price: 72000, clicking: '' }
+        // ];
 		
 		this.baseService.table = "exchange";
     }

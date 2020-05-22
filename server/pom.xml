@@ -8,9 +8,9 @@
 	<modules>
 		<module>zuul-server</module>
 		<module>eureka-server</module>
-		<module>user-client</module>
-		<module>admin-client</module>
-    	<module>auth-client</module>
+		<module>user-server</module>
+		<module>admin-server</module>
+    	<module>auth-server</module>
   </modules>
 
 	<packaging>pom</packaging>

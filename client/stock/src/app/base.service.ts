@@ -11,7 +11,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, Http
 export class BaseService {
     inject: Injector;
     router: Router = this.injector.get(Router);
-    baseApiUrl = 'api/v1';
+    //baseApiUrl = 'api';
     isLogin = true;
     isAdmin = true;
     operationType = 'create';
@@ -23,15 +23,17 @@ export class BaseService {
 
     generateHeader() {
         return new HttpHeaders({
-            // 'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbkBpYm0uY29tIn0.iTYXbQBDQe5GMhraKDO5OxUjCM1Y-qkP_87HYZ9OweY'
-            Authorization: localStorage.getItem('token'),
-            'Accept-Language': localStorage.getItem('lang')
+            'Authorization': localStorage.getItem('token'),
+            'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*'
         });
     }
 
     generateHeaderWithoutAuth() {
         return new HttpHeaders({
-            'Accept-Language': localStorage.getItem('lang')
+            'Authorization': 'Basic YWRtaW46MTIzNDU2',
+            'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*'
         });
     }
 
@@ -49,7 +51,27 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    // this.catchHTTPError('post', err, url);
+                    resolve(err);
+                });
+        });
+        return promise;
+    }
+
+    httpGetWithoutAuth(url) {
+        const promise = new Promise((resolve) => {
+            url = environment.serverUrl + url;
+            console.log(url);
+            this.http.get(url,
+				{headers: this.generateHeaderWithoutAuth()}
+			)
+                .toPromise()
+                .then(
+                    (res: any[]) => {
+                        console.log("res is:");
+                        console.log(res);
+                        resolve(res);
+                    }
+                ).catch((err: HttpErrorResponse) => {
                     resolve(err);
                 });
         });
@@ -67,15 +89,9 @@ export class BaseService {
                 .then(
                     (res: any[]) => {
                         console.log(res);
-                        // if (res.statusCode === '001') { // Success
-                        // } else { // fail
-                        //     // this.failMessages(res['statusMessage'], null);
-                        //     res.data = [];
-                        // }
-                        // resolve(res);
+                        resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    // this.catchHTTPError('get', err, url);
                     const errReturn = {
                         data: []
                     };
@@ -90,7 +106,7 @@ export class BaseService {
             url = environment.serverUrl + url;
             console.log(url);
             this.http.post(this.dealWithUrl(url), data, {
-                headers: this.generateHeaderWithoutAuth()
+                headers: null  //this.generateHeaderWithoutAuth()
             })
                 .toPromise()
                 .then(
@@ -99,7 +115,6 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    // this.catchHTTPError('post', err, url);
                     resolve(err);
                 });
         });
@@ -120,7 +135,6 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    // this.catchHTTPError('put', err, url);
                     resolve(err);
                 });
         });
@@ -141,7 +155,6 @@ export class BaseService {
                         resolve(res);
                     }
                 ).catch((err: HttpErrorResponse) => {
-                    // this.catchHTTPError('delete', err, url);
                     resolve(err);
                 });
         });
@@ -150,7 +163,7 @@ export class BaseService {
 
     redirectToLogin() {
         localStorage.removeItem('token');
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('usertype');
         this.router.navigate(['/login']);
     }
 

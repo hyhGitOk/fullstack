@@ -1,5 +1,5 @@
 /*
- * @description: Login Service
+ * @description: Exchange List Service
  * @author: hyuehua@cn.ibm.com
  * @version 1.0
  * Copyright (c) 2020, IBM All Rights Reserved.
@@ -11,19 +11,16 @@ import { environment } from '../../../environments/environment';
 import { BaseService } from 'src/app/base.service';
 
 @Injectable()
-export class LoginService extends BaseService {
-    /*variables defined*/
-    message = '';
+export class ExchangelistService extends BaseService {
 	
     /**
-	 * Authorize user email&password.
+	 * initialize list data.
 	 *
-	 * Input(email:user email; password:password)
 	 */
-    authorize(email, password) {
+    getListData() {
         const promise = new Promise((resolve) => {
-            const url = `auth/login?email=${email}&password=${password}`;
-            this.httpGetWithoutAuth(url)
+            const url = '/admin/stockExchange';
+            this.httpGet(url)
                 .then(
                     (res: Response) => { // Success
                         resolve(res);

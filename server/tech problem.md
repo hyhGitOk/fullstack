@@ -1,3 +1,5 @@
+1.spring security is conflict with cors filter
+------------------------------------------------------
 package com.hyh;
 
 import org.springframework.boot.SpringApplication;
@@ -34,3 +36,10 @@ public class ZuulServerApplication {
 		return new CorsFilter(source);
 	}
 }
+---------------------------------------------------------------
+这样配置之后，在前台是可以正常访问后台api接口的，在pom.xml中添加spring security之后，前台访问就会报cors错误。
+
+原因是加上security之后，会先触发security的spring security filter chain, 再去调用corsFilter，那么相应的解决办法就是将corsFilter放在spring security filter chain前面。
+
+在WebSecurityConfigurerAdapter的子类的configure(HttpSecurity httpSecurity)方法中加上“httpSecurity.addFilterBefore(corsFilter(), ChannelProcessingFilter.class)”
+
