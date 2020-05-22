@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 // import { LargeTextShowModule } from 'src/app/render/largeTextShow/largeTextShow.module';
 import { LargeTextShowComponent } from '../../render/largeTextShow/largeTextShow.component';
 
+import { ExchangelistService } from './exchangelist.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +21,6 @@ import { LargeTextShowComponent } from '../../render/largeTextShow/largeTextShow
   entryComponents: [],
   declarations: [ExchangelistComponent, LargeTextShowComponent],
   exports: [ExchangelistComponent],
-  providers: []
+  providers: [ExchangelistService]
 })
 export class ExchangelistModule { }
