@@ -1,4 +1,4 @@
-import { Component, Input, Injector } from '@angular/core';
+import { Component, Input, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BaseComponent } from '../../base.component';
 
@@ -7,32 +7,73 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './exchange.component.html',
   styleUrls: ['./exchange.component.css']
 })
-export class ExchangeComponent extends BaseComponent {
+export class ExchangeComponent extends BaseComponent implements OnInit {
 
-  @Input() exchange : string;
-  @Input() brief : string;
-  @Input() address : string;
-  @Input() remarks : string;
+  id : number;
+  exchangename : string;
+  brief : string;
+  address : string;
+  remarks : string;
   errorMessage = '';
 
   constructor(private router: Router, public injector: Injector) {
     super(injector);
   }
+
+    ngOnInit() {
+		if(this.baseService.operationType === 'update'){
+			this.id = this.baseService.editData.id;
+			this.exchangename = this.baseService.editData.name;
+			this.brief = this.baseService.editData.brief;
+			this.address = this.baseService.editData.address;
+			this.remarks = this.baseService.editData.remarks;
+		}
+    }
   
   validate() {
-    if (!this.exchange) {
+    if (!this.exchangename) {
       this.errorMessage = 'please input stock exchange.';
+	  return false;
     } else {
       this.errorMessage = '';
+	  return true;
     }
   }
 
   save() {
-    this.validate();
-
-    if (!this.errorMessage) {
-      this.router.navigate(['/exchangelist']);
-    }
+    if(this.validate()){
+		const url = '/admin/stockExchange';
+		const exchangeData = {
+			id: this.id,
+			name: this.exchangename,
+			brief: this.brief,
+			address: this.address,
+			remarks: this.remarks
+		}
+		if(this.baseService.operationType === 'create'){
+			this.baseService.httpPost(url, exchangeData)
+				.then((res: Response) => { // Success
+						console.log(res);
+						if(res.status){
+							this.errorMessage = res.error.error;
+						}else{
+							this.router.navigate(['/exchangelist']);
+						}
+					}
+				);
+		}else if(this.baseService.operationType === 'update'){
+			this.baseService.httpPut(url, exchangeData)
+				.then((res: Response) => { // Success
+						console.log(res);
+						if(res.status){
+							this.errorMessage = res.error.error;
+						}else{
+							this.router.navigate(['/exchangelist']);
+						}
+					}
+				);
+		}
+	}
   }
 
 }

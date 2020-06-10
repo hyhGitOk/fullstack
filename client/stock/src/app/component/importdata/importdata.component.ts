@@ -8,9 +8,11 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './importdata.component.html',
   styleUrls: ['./importdata.component.css']
 })
-export class ImportDataComponent{
+export class ImportDataComponent extends BaseComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public injector: Injector) {
+    super(injector);
+  }
 
   errorMessage = '';
   importfile;
@@ -18,19 +20,28 @@ export class ImportDataComponent{
   validate() {
     if (!this.importfile) {
       this.errorMessage = 'please select file.';
+	  return false;
     } else {
       this.errorMessage = '';
+	  return true;
     }
   }
 
   uploadFile() {
-    this.validate();
-
-    if (!this.errorMessage) {
-      // upload file to backend.
-
-	  this.router.navigate(['/importresult']);
-    }
+    if(this.validate()){
+		const url = '/admin/import';
+		
+		this.baseService.httpPost(url, this.importfile)
+			.then((res: Response) => { // Success
+					console.log(res);
+					if(res.status){
+						this.errorMessage = res.error.error;
+					}else{
+						this.router.navigate(['/importresult']);
+					}
+				}
+			);
+	}
   }
 
 }

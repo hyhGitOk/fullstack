@@ -17,13 +17,14 @@ import { ExchangelistService } from './exchangelist.service';
 export class ExchangelistComponent extends BaseComponent implements OnInit {
 
     @ViewChild('agGrid', {static: false}) agGrid: AgGridAngular;
-    rowData: any;
+    rowData = [];
 
     columnDefs = [
-      {headerName: '#', field: 'num', editable: false, width: 50 },
-      {headerName: 'Make', field: 'make', editable: false, sortable: true, filter: true },
-      {headerName: 'Model', field: 'model', editable: false, sortable: true, filter: true },
-      {headerName: 'Price', field: 'price', editable: false, sortable: true, filter: true },
+      {headerName: '#', field: 'id', editable: false, width: 50 },
+      {headerName: 'Name', field: 'name', editable: false, sortable: true, filter: true, width: 80 },
+      {headerName: 'Brief', field: 'brief', editable: false, sortable: true, filter: true, width: 200 },
+      {headerName: 'Address', field: 'address', editable: false, sortable: true, filter: true, width: 240 },
+      {headerName: 'Remarks', field: 'remarks', editable: false, sortable: true, filter: true, width: 150 },
       {headerName: 'Operation', field: 'clicking', editable: false, pinned: 'right', lockPinned: true, sortable: false,
         cellRendererFramework: ClickableParentComponent, width: 100, minWidth: 100, maxWidth: 100 }
     ];
@@ -39,16 +40,9 @@ export class ExchangelistComponent extends BaseComponent implements OnInit {
 				if(result.error){
 					this.errorMessage = result.error;
 				}else{
-					console.log(result);
 					this.rowData = result;
 				}
             });
-   
-        // this.rowData = [
-        //     { num: '1', make: 'Toyota', model: 'Celica', price: 35000, clicking: '' },
-        //     { num: '2', make: 'Ford', model: 'Mondeo', price: 32000, clicking: '' },
-        //     { num: '3', make: 'Porsche', model: 'Boxter', price: 72000, clicking: '' }
-        // ];
 		
 		this.baseService.table = "exchange";
     }

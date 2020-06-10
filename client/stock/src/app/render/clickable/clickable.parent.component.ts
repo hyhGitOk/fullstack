@@ -32,19 +32,30 @@ export class ClickableParentComponent extends BaseComponent implements ICellRend
         console.log(this.params.data);
 		
 		this.baseService.operationType = 'update';
-		this.baseService.editData = JSON.parse(JSON.stringify(this.params.data));
+		this.baseService.editData = this.params.data;
 		this.router.navigate([this.baseService.table]);
     }
 
     public myDelete(cell: any): void {
 		console.log("deleting...");
 		console.log(this.cell);
-        console.log(this.params);
+        console.log(this.params.data);
 		this.confirmDialogService.confirm('Confirmation', 'Do you confirm to delete this data?')
 			.then((confirmed) => {
-				//console.log('User confirmed:', confirmed);
 				if (confirmed) {
-					//Call DB delete, then refresh
+					if(this.baseService.table === 'exchange'){
+						const url = '/admin/stockExchange/' + this.params.data.id;
+						this.baseService.httpDelete(url)
+							.then((res: Response) => { // Success
+									console.log(res);
+									if(res.status){
+										//this.errorMessage = res.error.error;
+									}else{
+										//this.router.navigate(['/exchangelist']);
+									}
+								}
+							);
+					}
 				}
 			}).catch(() => {
 				console.log('User dismissed the dialog');
