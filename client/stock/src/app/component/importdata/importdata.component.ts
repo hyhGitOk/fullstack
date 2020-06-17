@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
-import { Injector } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { BaseComponent } from '../../base.component';
 
 @Component({
@@ -34,8 +34,8 @@ export class ImportDataComponent extends BaseComponent {
 		this.baseService.httpPost(url, this.importfile)
 			.then((res: Response) => { // Success
 					console.log(res);
-					if(res.status){
-						this.errorMessage = res.error.error;
+          if(res instanceof HttpErrorResponse){
+            this.errorMessage = new HttpErrorResponse(res).error.error;
 					}else{
 						this.router.navigate(['/importresult']);
 					}

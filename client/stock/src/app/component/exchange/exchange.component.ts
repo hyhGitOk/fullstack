@@ -1,5 +1,6 @@
 import { Component, Input, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 import { BaseComponent } from '../../base.component';
 
 @Component({
@@ -54,8 +55,8 @@ export class ExchangeComponent extends BaseComponent implements OnInit {
 			this.baseService.httpPost(url, exchangeData)
 				.then((res: Response) => { // Success
 						console.log(res);
-						if(res.status){
-							this.errorMessage = res.error.error;
+						if(res instanceof HttpErrorResponse){
+							this.errorMessage = new HttpErrorResponse(res).error.error;
 						}else{
 							this.router.navigate(['/exchangelist']);
 						}
@@ -65,8 +66,8 @@ export class ExchangeComponent extends BaseComponent implements OnInit {
 			this.baseService.httpPut(url, exchangeData)
 				.then((res: Response) => { // Success
 						console.log(res);
-						if(res.status){
-							this.errorMessage = res.error.error;
+						if(res instanceof HttpErrorResponse){
+							this.errorMessage = new HttpErrorResponse(res).error.error;
 						}else{
 							this.router.navigate(['/exchangelist']);
 						}

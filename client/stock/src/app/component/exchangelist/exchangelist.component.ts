@@ -38,7 +38,7 @@ export class ExchangelistComponent extends BaseComponent implements OnInit {
             .getListData()
             .then((result: any) => {
 				if(result.error){
-					this.errorMessage = result.error;
+					this.rowData = [];
 				}else{
 					this.rowData = result;
 				}
